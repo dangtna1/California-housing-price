@@ -1,6 +1,1 @@
-linear_model.pkl
-linear_metadata.pkl
-tree_model.pkl
-tree_metadata.pkl
-forest_model.pkl
-forest_metadata.pkl
+*.pkl
