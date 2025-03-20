@@ -69,7 +69,7 @@ def load_housing_data():
    * NEAR BAY: 2290
    * ISLAND: 5
 * The distribution of each variable
-![Histogram](images\distribution.png)
+![Histogram](images/distribution.png)
 ### 2. Stratified Train-Test Split
  ```python
 # Create income strata
