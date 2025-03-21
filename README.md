@@ -108,7 +108,26 @@ graph TD
     G --> H[Ready for Model]
 ```
 ### 4. Model Training & Evaluation
-
+**Models Compared:**
+```python
+models = {
+    "Linear Regression": LinearRegression(),
+    "Decision Tree": DecisionTreeRegressor(),
+    "Random Forest": RandomForestRegressor(),
+    "SVM": SVR(kernel='linear')
+}
+```
+**Cross-Validation Results:**
+| Model | Mean RMSE     | Std Dev       |
+|-----------|--------------|------------|
+| Linear Regression          | 69104.07998247063  | 2880.3282098180666    |
+| Decision Tree          | 70881.49564861869    | 2783.9086144558687     |
+| Random Forest          | 50561.786847478754    | 778.4388445250213     |
+| SVM	          | 72604.3433401591   | 1289.3324949001326    |
+**Key Findings:**
+* Random Forest showed best initial performance (50k RMSE)
+* Decision Trees severely overfit (training RMSE: 0 if we don't use cross-validation), so it's better to use cross-validation to measure performance of a model before launching
+* Linear models underperformed due to non-linear relationships
 ### 5. Hyperparameter Tuning
 
 ### 6. Final Evaluation
