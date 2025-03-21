@@ -124,6 +124,7 @@ models = {
 | Decision Tree          | 70881.49564861869    | 2783.9086144558687     |
 | Random Forest          | 50561.786847478754    | 778.4388445250213     |
 | SVM	          | 72604.3433401591   | 1289.3324949001326    |
+
 **Key Findings:**
 * Random Forest showed best initial performance (50k RMSE)
 * Decision Trees severely overfit (training RMSE: 0 if we don't use cross-validation), so it's better to use cross-validation to measure performance of a model before launching
