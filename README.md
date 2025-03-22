@@ -130,7 +130,39 @@ models = {
 * Decision Trees severely overfit (training RMSE: 0 if we don't use cross-validation), so it's better to use cross-validation to measure performance of a model before launching
 * Linear models underperformed due to non-linear relationships
 ### 5. Hyperparameter Tuning
+**Grid Search Configuration:**
+```python
+param_grid = [
+    {'n_estimators': [3, 10, 30], 'max_features': [2, 4, 6, 8]},
+    {'bootstrap': [False], 'n_estimators': [3, 10], 'max_features': [2, 3, 4]}
+]
 
+grid_search = GridSearchCV(forest_reg, param_grid, cv=5, scoring='neg_mean_squared_error') # (3*4 + 2*3)*5 = 90 times
+grid_search.fit(housing_prepared, housing_labels)
+```
+**Randomized Search:**
+```python
+params_distribs = {
+    'n_estimators': stats.randint(low=1, high=200),
+    'max_features': stats.randint(low = 1, high = 8)
+}
+rnd_search = RandomizedSearchCV(
+    forest_reg,
+    param_distributions=params_distribs,
+    n_iter=10,
+    cv=5,
+    scoring='neg_mean_squared_error',
+    random_state=42
+) # trained and evaluated 10*5 times
+
+rnd_search.fit(housing_prepared, housing_labels)
+```
+**Feature Importance:**
+* Median Income
+* Inland Location
+* Population/Household
+* Housing Median Age
+* Longitude
 ### 6. Final Evaluation
 
 ## Results
